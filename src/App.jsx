@@ -1,11 +1,15 @@
+import { Provider } from "react-redux";
 import "./App.css";
-import Body from "./Body";
-import Login from "./Login";
-import Navbar from "./Navbar";
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import Body from "./components/Body";
+import Login from "./components/Login";
+import Navbar from "./components/Navbar";
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import appStore from "./utils/appStore";
 
 function App() {
   return (
+    <>
+    <Provider store={appStore}>
     <BrowserRouter basename="/">
       <Routes >
         <Route path="/" element={<Body />} >
@@ -14,6 +18,8 @@ function App() {
         </Route>
       </Routes> 
     </BrowserRouter>
+    </Provider>
+    </>
   );
 }
 

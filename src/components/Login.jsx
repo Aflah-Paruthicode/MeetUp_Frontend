@@ -1,19 +1,29 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
+import { loginURL } from "../utils/constants";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("aflu@gmail.com");
   const [password, setPassword] = useState("Aflu@123");
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleLogin = async () => {
     try {
-      const res = await axios.post("http://localhost:8080/login", { email, password }, { withCredentials: true });
+      const res = await axios.post(loginURL, { email, password }, { withCredentials: true });
+      console.log(res);
+      dispatch(addUser(res.data.data));
+      navigate('/')
     } catch (error) {
       console.log(error);
     }
   };
 
-  return ( 
+  return (
     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4 mx-auto my-auto">
       <legend className="fieldset-legend">Login</legend>
 
