@@ -1,10 +1,25 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { LOGO } from "../utils/constants";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { baseUrl, LOGO } from "../utils/constants";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { removeUser } from "../utils/userSlice";
 
 const Navbar = () => {
   const user = useSelector((store) => store.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      const res = await axios.post(baseUrl + "/logout", {}, {withCredentials : true});
+      dispatch(removeUser());
+      return navigate('/login');
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   useEffect(() => {
     console.log(user, "user");
   }, [user]);
@@ -33,7 +48,7 @@ const Navbar = () => {
                 <Link to={'/proffile'}>Proffile</Link>
               </li>
               <li>
-                <a>About</a>
+                <p onClick={handleLogout}>Logout</p>
               </li>
             </ul>
           </div>
