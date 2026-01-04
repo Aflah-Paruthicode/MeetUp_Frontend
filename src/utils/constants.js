@@ -1,2 +1,2 @@
-export const loginURL = 'http://localhost:8080/login';
+export const baseUrl = 'http://localhost:8080';
 export const LOGO = 'logo-png.png';
