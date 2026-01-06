@@ -16,13 +16,13 @@ const Body = () => {
       const res = await axios.get(baseUrl + "/proffile/view", { withCredentials: true });
       dipatch(addUser(res.data))
     } catch (err) {
-      if(err.status == 401) navigate('/login')
+      if(err.status == 401) navigate('/login') 
       console.error(err);
     }
   };
 
-  useEffect(() => {
-    if(!userData) fetchUser();
+  useEffect(() => { 
+    if(!userData) fetchUser(); 
   },[])
 
   return (
