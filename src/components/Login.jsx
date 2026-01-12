@@ -8,20 +8,18 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("aflu@gmail.com");
   const [password, setPassword] = useState("Aflu@123");
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post(baseUrl + '/login', { email, password }, { withCredentials: true });
-      console.log(res);
-      dispatch(addUser(res?.data?.data)); 
-      navigate('/')
+      const res = await axios.post(baseUrl + "/login", { email, password }, { withCredentials: true });
+      dispatch(addUser(res?.data?.data));
+      navigate("/");
     } catch (error) {
-      setError(error?.response?.data || 'Something went wrong!');
-      console.log(error);
+      setError(error?.response?.data || "Something went wrong!");
     }
   };
 

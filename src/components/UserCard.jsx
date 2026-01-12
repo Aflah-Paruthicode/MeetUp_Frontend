@@ -14,7 +14,9 @@ const UserCard = ({ user }) => {
         <p>{user.about}</p>
         <div className="card-actions justify-end">
           {user.skills.map((skill) => (
-            <div key={skill} className="badge badge-outline">{skill}</div>
+            <div key={skill} className="badge badge-outline">
+              {skill}
+            </div>
           ))}
         </div>
       </div>

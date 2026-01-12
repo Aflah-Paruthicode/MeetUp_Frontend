@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Proffile = () => {
-  return (
-    <div>Proffile</div>
-  )
-}
+  return <div>Proffile</div>;
+};
 
-export default Proffile
+export default Proffile;
