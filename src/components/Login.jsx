@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("aflu@gmail.com");
   const [password, setPassword] = useState("Aflu@123");
+  const [error, setError] = useState('');
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ const Login = () => {
       dispatch(addUser(res?.data?.data)); 
       navigate('/')
     } catch (error) {
+      setError(error?.response?.data || 'Something went wrong!');
       console.log(error);
     }
   };
@@ -32,7 +34,7 @@ const Login = () => {
 
       <label className="label">Password</label>
       <input type="password" className="input" name="password" onChange={(e) => setPassword(e.target.value)} value={password} placeholder="Password" />
-
+      <p className="text-red-400">{error}</p>
       <button className="btn btn-neutral mt-4" onClick={handleLogin}>
         Login
       </button>
