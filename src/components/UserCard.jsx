@@ -1,6 +1,7 @@
 import React from "react";
 
 const UserCard = ({ user }) => {
+  console.log(user)
   return (
     <div className="card bg-base-100 w-96 shadow-sm">
       <figure>
@@ -19,7 +20,7 @@ const UserCard = ({ user }) => {
             </div>
           ))}
         </div>
-      </div>
+      </div> 
     </div>
   );
 };

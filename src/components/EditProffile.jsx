@@ -1,16 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import UserCard from './UserCard'
 
-const EditProffile = () => {
-    const [firstName, setFirstName] = useState('');
-    const [lastName,setLastName] = useState('');
-    const [photoUrl, setPhotoUrl] = useState('');
-    const [age, setAge] = useState('');
-    const [gender, setGender] = useState('');
-    const [about, setAbout] = useState('');
+const EditProffile = ({user}) => {
+    const [firstName, setFirstName] = useState(user.firstName);
+    const [lastName,setLastName] = useState(user.lastName);
+    const [photoUrl, setPhotoUrl] = useState(user.photoUrl);
+    const [age, setAge] = useState(user.age);
+    const [gender, setGender] = useState(user.gender);
+    const [skills, setSkills] = useState(user.skills)
+    const [about, setAbout] = useState(user.about);
 
 
   return (
-    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4 mx-auto my-auto">
+    <div className='flex justify-center gap-8 my-8'>
+
+     <UserCard user={{firstName,lastName,photoUrl,age,gender,about,skills}} />
+
+    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4 my-auto">
       <legend className="fieldset-legend">Edit Proffile</legend>
 
       <label className="label">First Name : </label>
@@ -31,12 +37,22 @@ const EditProffile = () => {
       <label className="label">About : </label>
       <input type="text" className="input" name="About" onChange={(e) => setAbout(e.target.value)} value={about} />
 
+      <label className="label">Skills : </label>
+      {
+        skills.map((ele,ind) => (
+
+            <input type="text" className="input" name="skill" onChange={(e) => setSkills(skills[ind] = e.target.value)} value={ele} />
+        ))
+      }
+
 
       {/* <p className="text-red-400">{error}</p> */}
       <button className="btn btn-neutral mt-4" >
         Save Changes
       </button>
+
     </fieldset>
+    </div>
   )
 }
 
