@@ -1,7 +1,10 @@
 import React from "react";
+import EditProffile from "./EditProffile";
 
 const Proffile = () => {
-  return <div>Proffile</div>;
+  return <div>
+    <EditProffile />
+  </div>;
 };
 
-export default Proffile;
+export default Proffile; 
