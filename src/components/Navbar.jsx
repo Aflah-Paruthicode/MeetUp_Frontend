@@ -25,7 +25,7 @@ const Navbar = () => {
   }, [user]);
 
   return (
-    <div className="w-full shadow-sm">
+    <div className="w-full shadow-sm"> 
       <div className="navbar bg-base-100 w-[70%] mx-auto flex justify-between">
         <div className="navbar-center">
           <img className="w-32 py-1 rounded-2xl" src={LOGO} alt="logo" />
