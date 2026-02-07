@@ -7,6 +7,6 @@ const Proffile = () => {
   return <div> {
     user && <EditProffile user={user} />
     } </div>;
-};
+};   
 
 export default Proffile;
