@@ -17,11 +17,12 @@ const Login = () => {
     try {
       const res = await axios.post(baseUrl + "/login", { email, password }, { withCredentials: true });
       dispatch(addUser(res?.data?.data));
-      navigate("/");
+      navigate("/feed");
     } catch (error) {
+      console.log(error?.response?.data)
       setError(error?.response?.data || "Something went wrong!");
     }
-  };
+  };   
 
   return (
     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4 mx-auto my-auto">
