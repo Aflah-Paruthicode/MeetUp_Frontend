@@ -20,9 +20,7 @@ const Navbar = () => {
     }
   };
 
-  useEffect(() => {
-    // console.log(user, "user");
-  }, [user]);
+ 
 
   return (
     <div className="w-full shadow-sm"> 
