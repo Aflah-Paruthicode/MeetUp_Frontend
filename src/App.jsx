@@ -14,7 +14,7 @@ function App() {
         <BrowserRouter basename="/">
           <Routes>
             <Route path="/" element={<Body />}>
-              <Route path="/login" element={<Login />} />
+              <Route path="/login" element={<div className="flex justify-center items-center h-[80vh]"><Login /></div>} />
               <Route path="/feed" element={<Feed />} />
               <Route path="/proffile" element={<Proffile />} />
               <Route path="/home" element={<div>home page</div>} />

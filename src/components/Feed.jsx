@@ -23,7 +23,7 @@ const Feed = () => {
     getFeed();
   }, []);
 
-  return <div>{feed && feed.map((user) => <UserCard key={user._id} user={user} />)}</div>;
+  return <div className="p-3 flex justify-center gap-3">{feed && feed.map((user) => <UserCard key={user._id} user={user} />)}</div>;
 };
 
 export default Feed;
