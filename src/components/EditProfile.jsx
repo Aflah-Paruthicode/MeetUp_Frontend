@@ -5,7 +5,7 @@ import { baseUrl } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
-const EditProffile = ({ user }) => {
+const Editprofile = ({ user }) => {
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
   const [photoUrl, setPhotoUrl] = useState(user.photoUrl);
@@ -16,22 +16,23 @@ const EditProffile = ({ user }) => {
   const [error, setError] = useState("");
   const dispatch = useDispatch();
 
-  const saveProffile = async () => {
+  const saveprofile = async () => {
     try {
-      const res = await axios.patch(baseUrl + "/proffile/edit", { firstName, lastName, photoUrl, age, gender, skills, about }, { withCredentials: true });
-      // console.log(res)
+      console.log('bugg')
+      const res = await axios.patch(baseUrl + "/profile/edit", { firstName, lastName, photoUrl, gender, skills, about }, { withCredentials: true });
+      console.log('bugg')
       dispatch(addUser(res?.data?.data))
     } catch (err) {
       setError(err.message);
     }
-  };
+  }; 
 
   return (
     <div className="flex justify-center gap-8 my-8">
       <UserCard user={{ firstName, lastName, photoUrl, age, gender, about, skills }} /> 
 
       <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4 my-auto">
-        <legend className="fieldset-legend">Edit Proffile</legend>
+        <legend className="fieldset-legend">Edit profile</legend>
 
         <label className="label">First Name : </label>
         <input type="text" className="input" name="firstName" onChange={(e) => setFirstName(e.target.value)} value={firstName} />
@@ -57,10 +58,10 @@ const EditProffile = ({ user }) => {
         ))} 
 
         {/* <p className="text-red-400">{error}</p> */}
-        <button className="btn btn-neutral mt-4" onClick={saveProffile}>Save Changes</button>
+        <button className="btn btn-neutral mt-4" onClick={saveprofile}>Save Changes</button>
       </fieldset>
     </div>
   );
 };
 
-export default EditProffile;
+export default Editprofile;

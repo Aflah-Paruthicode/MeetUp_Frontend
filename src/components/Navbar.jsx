@@ -42,7 +42,7 @@ const Navbar = () => {
                 <Link to={"/feed"}>Home</Link>
               </li>
               <li>
-                <Link to={"/proffile"}>Proffile</Link>
+                <Link to={"/profile"}>profile</Link>
               </li>
               <li>
                 <p onClick={handleLogout}>Logout</p>

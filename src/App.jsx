@@ -2,7 +2,7 @@ import { Provider } from "react-redux";
 import "./App.css";
 import Body from "./components/Body";
 import Login from "./components/Login";
-import Proffile from "./components/Proffile";
+import Profile from "./components/profile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import appStore from "./utils/appStore";
 import Feed from "./components/Feed";
@@ -16,7 +16,7 @@ function App() {
             <Route path="/" element={<Body />}>
               <Route path="/login" element={<div className="flex justify-center items-center h-[80vh]"><Login /></div>} />
               <Route path="/feed" element={<Feed />} />
-              <Route path="/proffile" element={<Proffile />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="/home" element={<div>home page</div>} />
             </Route>
           </Routes>
