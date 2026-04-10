@@ -14,24 +14,29 @@ const Editprofile = ({ user }) => {
   const [skills, setSkills] = useState(user.skills);
   const [about, setAbout] = useState(user.about);
   const [error, setError] = useState("");
+  const [showToast, setShowToast] = useState(false);
   const dispatch = useDispatch();
 
   const saveprofile = async () => {
     try {
-      console.log('bugg')
-      const res = await axios.patch(baseUrl + "/profile/edit", { firstName, lastName, photoUrl, gender, skills, about }, { withCredentials: true });
-      console.log('bugg')
+      const res = await axios.post(baseUrl + "/profile/edit", { firstName, lastName, photoUrl, age, gender, skills, about }, { withCredentials: true });
       dispatch(addUser(res?.data?.data))
+      setShowToast(true);
+      setTimeout(() => {
+        setShowToast(false)
+      },3000)
     } catch (err) {
-      setError(err.message);
+      setShowToast(false);
+      setError(err?.response?.data);
+      console.log(err)
     }
-  }; 
+  };
 
   return (
     <div className="flex justify-center gap-8 my-8">
-      <UserCard user={{ firstName, lastName, photoUrl, age, gender, about, skills }} /> 
+      <UserCard user={{ firstName, lastName, photoUrl, age, gender, about, skills }} />
 
-      <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4 my-auto">
+      <fieldset className="fieldset bg-base-300 border-base-300 rounded-box w-xs border p-4 my-auto">
         <legend className="fieldset-legend">Edit profile</legend>
 
         <label className="label">First Name : </label>
@@ -47,19 +52,29 @@ const Editprofile = ({ user }) => {
         <input type="number" className="input" name="age" onChange={(e) => setAge(e.target.value)} value={age} />
 
         <label className="label">Gender : </label>
-        <input type="text" className="input" name="gender" onChange={(e) => setGender(e.target.value)} value={gender} />
+      <select value={gender} onChange={(e) => setGender(e.target.value)} className="select">
+        <option value="male">male</option>
+        <option value="female">female</option>
+      </select>
+      <p className="label">Selected: {gender}</p>
 
         <label className="label">About : </label>
-        <input type="text" className="input" name="About" onChange={(e) => setAbout(e.target.value)} value={about} />
+        <textarea className="textarea" placeholder="about..." onChange={(e) => setAbout(e.target.value)} value={about}></textarea>
 
         <label className="label">Skills : </label>
         {skills.map((ele, ind) => (
           <input key={ind} type="text" className="input" name="skill" onChange={(e) => setSkills((skills[ind] = e.target.value))} value={ele} />
-        ))} 
+        ))}
 
-        {/* <p className="text-red-400">{error}</p> */}
+        <p className="text-red-400">{error}</p>
         <button className="btn btn-neutral mt-4" onClick={saveprofile}>Save Changes</button>
       </fieldset>
+
+      {showToast && <div className="toast toast-top toast-center">
+        <div className="alert alert-success"> 
+          <span>Message sent successfully.</span>
+        </div>
+      </div>}
     </div>
   );
 };
