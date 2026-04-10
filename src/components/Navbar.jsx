@@ -20,10 +20,10 @@ const Navbar = () => {
     }
   };
 
- 
+
 
   return (
-    <div className="w-full shadow-sm bg-base-300"> 
+    <div className="w-full shadow-sm bg-base-300">
       <div className="navbar  w-[80%] mx-auto flex justify-between">
         <div className="navbar-center">
           <img className="w-32 py-1 rounded-2xl" src={LOGO} alt="logo" />
@@ -44,6 +44,9 @@ const Navbar = () => {
               <li>
                 <Link to={"/profile"}>profile</Link>
               </li>
+              <li>
+                <Link to={"/connections"}>connections</Link>
+                </li>
               <li>
                 <p onClick={handleLogout}>Logout</p>
               </li>

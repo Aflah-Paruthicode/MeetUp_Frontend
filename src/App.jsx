@@ -6,6 +6,7 @@ import Profile from "./components/Profile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import appStore from "./utils/appStore";
 import Feed from "./components/Feed";
+import Connections from "./components/Connections";
 
 function App() {
   return (
@@ -15,9 +16,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Body />}>
               <Route path="/login" element={<div className="flex justify-center items-center h-[80vh]"><Login /></div>} />
+              <Route path="/home" element={<div>home page</div>} />
+              <Route path="/connections" element={<Connections />} />
               <Route path="/feed" element={<Feed />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/home" element={<div>home page</div>} />
             </Route>
           </Routes>
         </BrowserRouter>
