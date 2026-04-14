@@ -4,6 +4,8 @@ import { baseUrl, LOGO } from "../utils/constants";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { removeUser } from "../utils/userSlice";
+import { removeFeed } from "../utils/feedSlice";
+import { removeConnections } from "../utils/connectionSlice";
 
 const Navbar = () => {
   const user = useSelector((store) => store.user);
@@ -14,6 +16,8 @@ const Navbar = () => {
     try {
       await axios.post(baseUrl + "/logout", {}, { withCredentials: true });
       dispatch(removeUser());
+      dispatch(removeFeed());
+      dispatch(removeConnections())
       return navigate("/login");
     } catch (err) {
       console.error(err);
@@ -32,8 +36,8 @@ const Navbar = () => {
           <div className="dropdown">
             <div className="navbar-end btn space-x-3 btn-circle" tabIndex={0} role="button">
               <p className="text-white">welcome, {user.lastName}</p>
-              <button className="btn btn-ghost btn-circle">
-                <img className="w-60 py-1 rounded-full" src={user.photoUrl} alt="" />
+              <button className="btn btn-ghost btn-circle border-white border-[.5px]">
+                <img className="h-full object-cover rounded-full" src={user.photoUrl} alt="" />
               </button>
             </div>
 
