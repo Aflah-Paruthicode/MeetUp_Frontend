@@ -31,6 +31,14 @@ const Editprofile = ({ user }) => {
       console.log(err)
     }
   };
+ 
+  const [inputSkills, setInputSkills] = useState(user.skills.join(','));
+  const saveSkills = (e) => {
+    const val = e.target.value;
+    setInputSkills(val);
+    let newSkills = val.split(',').map(s => s.trim()).filter(s => s !== '');
+    setSkills(newSkills);
+  }
 
   return (
     <div className="flex justify-center gap-8 my-8">
@@ -62,9 +70,7 @@ const Editprofile = ({ user }) => {
         <textarea className="textarea" placeholder="about..." onChange={(e) => setAbout(e.target.value)} value={about}></textarea>
 
         <label className="label">Skills : </label>
-        {skills.map((ele, ind) => (
-          <input key={ind} type="text" className="input" name="skill" onChange={(e) => setSkills((skills[ind] = e.target.value))} value={ele} />
-        ))}
+          <input  type="text" className="input" name="skill" onChange={saveSkills} value={inputSkills} />
 
         <p className="text-red-400">{error}</p>
         <button className="btn btn-neutral mt-4" onClick={saveprofile}>Save Changes</button>
