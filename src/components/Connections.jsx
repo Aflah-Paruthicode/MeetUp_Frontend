@@ -26,17 +26,24 @@ const Connections = () => {
   if (connections.length == 0) return <h1>No connections found</h1>
 
   return (
-    <div>
+    <div className='w-full my-10'>
 
-      <h1 className='text-5xl'>Connections</h1>
+      <div className='w-1/2 mx-auto text-center'>
+        <h1 className='text-3xl font-bold my-5'>Connections</h1>
 
-      <div className='text-white'>
-        {connections.map((connection) => (
-          <div key={connection._id}>
-            <img className='w-72 h-screen' src={connection.photoUrl} alt="" />
-            <p>{connection.firstName + " " + connection.lastName}</p>
-          </div>
-        ))}
+        <div className=''>
+          {connections.map((connection) => (
+            <div key={connection._id} className='bg-base-300 w-full my-2 flex p-3 rounded-xl' >
+              <img className='w-20 h-20 object-cover rounded-full' src={connection.photoUrl} alt="" />
+              <div className='text-start p-2'>
+                <h2 className='font-semibold text-lg text-gray-50/80'>{connection.firstName + " " + connection.lastName}</h2>
+                <p className='text-gray-50/30'>{connection.gender}, {connection.age}</p>
+                <p className='text-gray-50/50'>{connection.about}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </div>
   )
