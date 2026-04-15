@@ -46,10 +46,13 @@ const Navbar = () => {
                 <Link to={"/feed"}>Home</Link>
               </li>
               <li>
-                <Link to={"/profile"}>profile</Link>
+                <Link to={"/profile"}>Profile</Link>
               </li>
               <li>
-                <Link to={"/connections"}>connections</Link>
+                <Link to={'/requests'}>Requests</Link>
+              </li>
+              <li>
+                <Link to={"/connections"}>Connections</Link>
                 </li>
               <li>
                 <p onClick={handleLogout}>Logout</p>
