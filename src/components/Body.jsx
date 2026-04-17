@@ -11,7 +11,7 @@ const Body = () => {
   const navigate = useNavigate();
   const userData = useSelector((store) => store.user);
 
-  const fetchUser = async () => {
+  const fetchUser = async () => {  
     try {
       const res = await axios.get(baseUrl + "/profile/view", { withCredentials: true });
       dipatch(addUser(res.data));

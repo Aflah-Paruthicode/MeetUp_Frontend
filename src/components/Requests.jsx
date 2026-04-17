@@ -21,7 +21,7 @@ const Requests = () => {
 
     const replyAction = async (status,_id) => {
         try {
-            const res = await axios.post(baseUrl+ '/request/review/'+_id+'/'+status,{},{withCredentials: true}); 
+            await axios.post(baseUrl+ '/request/review/'+_id+'/'+status,{},{withCredentials: true}); 
             dispatch(removeRequest(_id)) 
         } catch (err) {
             console.log(err);

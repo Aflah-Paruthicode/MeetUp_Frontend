@@ -27,12 +27,12 @@ const Navbar = () => {
 
 
   return (
-    <div className="w-full shadow-sm bg-base-300">
+    <div className="w-full shadow-2xl bg-white">
       <div className="navbar  w-[80%] mx-auto flex justify-between">
         <div className="navbar-center">
           <img className="w-32 py-1 rounded-2xl" src={LOGO} alt="logo" />
         </div>
-        {user && (
+        {user ? (
           <div className="dropdown">
             <div className="navbar-end btn space-x-3 btn-circle" tabIndex={0} role="button">
               <p className="text-white">welcome, {user.lastName}</p>
@@ -59,6 +59,8 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
+        ) : (
+          <button className="py-2 bg-slate-900 text-white rounded-md font-semibold text-sm hover:bg-slate-800 active:scale-[0.98] transition-all shadow-xl shadow-slate-200 px-4">Sign up</button>
         )}
       </div>
     </div>
