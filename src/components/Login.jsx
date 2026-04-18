@@ -17,7 +17,7 @@ const Login = () => {
     try {
       const res = await axios.post(baseUrl + "/login", { email, password }, { withCredentials: true });
       dispatch(addUser(res?.data?.data));
-      navigate("/feed");
+      navigate("/");
     } catch (error) {
       console.log(error?.response?.data)
       setError(error?.response?.data || "Something went wrong!");
