@@ -27,20 +27,17 @@ const Navbar = () => {
 
 
   return (
-    <div className="sticky top-0 z-50 w-full border-b border-slate-200/50 bg-white/70 backdrop-blur-md">
+    <div className="absolute top-0 z-50 w-full border-b border-slate-200/50 bg-white/70 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo Section */}
         <div className="flex items-center gap-2">
           <Link to="/">
             <img className="h-8 w-auto object-contain brightness-110" src={LOGO} alt="logo" />
           </Link>
         </div>
 
-        {/* Right Section */}
         <div className="flex items-center gap-6">
           {user ? (
             <div className="dropdown dropdown-end">
-              {/* User Profile Pill */}
               <div
                 tabIndex={0}
                 role="button"
@@ -58,7 +55,6 @@ const Navbar = () => {
                 </div>
               </div>
 
-              {/* Premium Dropdown Menu */}
               <ul
                 tabIndex={0}
                 className="dropdown-content mt-4 z-1 menu p-2 shadow-2xl bg-white border border-slate-100 rounded-2xl w-52 overflow-hidden animate-in fade-in slide-in-from-top-2"
@@ -102,9 +98,9 @@ const Navbar = () => {
               <Link to="/login" className="text-sm font-bold text-slate-600 hover:text-slate-900 transition-colors">
                 Login
               </Link>
-              <button className="px-5 py-2.5 bg-slate-900 text-white rounded-full font-bold text-xs uppercase tracking-wider hover:bg-blue-600 hover:shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95 transition-all">
+              <Link to={'signup'} className="px-5 py-2.5 bg-slate-900 text-white rounded-full font-bold text-xs uppercase tracking-wider hover:bg-blue-600 hover:shadow-[0_8px_20px_rgba(37,99,235,0.3)] active:scale-95 transition-all">
                 Join Now
-              </button>
+              </Link>
             </div>
           )}
         </div>

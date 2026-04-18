@@ -26,7 +26,7 @@ const Connections = () => {
   if (connections.length == 0) return <h1 className='text-black mt-10 text-xl font-semibold'>No connections found</h1>
 
   return (
-    <div className="w-full max-w-6xl mx-auto my-12 px-6">  
+    <div className="w-full max-w-6xl mx-auto my-12 px-6 mt-36">  
       <div className="flex items-end gap-3 mb-10">
         <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight">Connections</h1>
         <span className="mb-1.5 px-3 py-0.5 bg-blue-100 text-blue-600 text-xs font-bold rounded-full">

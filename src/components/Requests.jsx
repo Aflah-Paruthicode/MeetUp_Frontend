@@ -34,10 +34,10 @@ const Requests = () => {
 
 
     if (!requests) return;
-    if (requests.length == 0) return <h1 className='text-center text-black mt-14 text-xl font-semibold'>No Requests found</h1>
+    if (requests.length == 0) return <h1 className='text-center text-black mt-36 text-xl font-semibold'>No Requests found</h1>
 
     return (
-        <div className="w-full max-w-2xl mx-auto my-12 px-4">
+        <div className="w-full max-w-2xl mx-auto my-12 mt-36 px-4">
             <div className="flex items-center justify-between mb-8">
                 <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">
                     Requests <span className="text-blue-600 text-lg ml-2 font-medium">({requests.length})</span>

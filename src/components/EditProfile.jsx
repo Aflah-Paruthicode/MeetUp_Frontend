@@ -41,7 +41,7 @@ const Editprofile = ({ user }) => {
   }
 
   return (
-    <div className="flex justify-center gap-8 my-8">
+    <div className="flex justify-center gap-8 my-8 mt-32">
       <UserCard user={{ firstName, lastName, photoUrl, age, gender, about, skills }} />
 
       <fieldset className="fieldset bg-base-300 border-base-300 rounded-box w-xs border p-4 my-auto">

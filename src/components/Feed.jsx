@@ -24,7 +24,7 @@ const Feed = () => {
     getFeed();
   }, []);
 
-  return  feed && <div className="p-3 flex justify-center gap-3">{feed.length !== 0 ? <UserCard user={feed[0]} /> : <p className="text-black mt-10 text-xl font-semibold">0 Poeple in the feed.</p>}</div>
+  return  feed && <div className="p-3 flex justify-center mt-36 gap-3">{feed.length !== 0 ? <UserCard user={feed[0]} /> : <p className="text-black mt-10 text-xl font-semibold">0 Poeple in the feed.</p>}</div>
 };
 
 export default Feed;
