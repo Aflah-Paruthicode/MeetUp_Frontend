@@ -22,7 +22,7 @@ const UserCard = ({ user }) => {
   }
   console.log(user)
   return (
-    <div className="card w-80 bg-white border border-white/10 shadow-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 group">
+    <div className="card w-80 h-fit bg-white border border-white/10 shadow-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 group">
       <figure className="relative h-64 overflow-hidden">
         <img
           src={user.photoUrl}
