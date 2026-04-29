@@ -13,6 +13,7 @@ import SignUp from "./components/SignUp";
 function App() {
 
   const userData = useSelector((store) => store.user);
+  
   return (
     <>
         <BrowserRouter basename="/">
