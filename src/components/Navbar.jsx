@@ -82,6 +82,11 @@ const Navbar = () => {
                     Connections
                   </Link>
                 </li>
+                <li>
+                  <Link to="/premium" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-600 font-medium active:scale-95 transition-all">
+                    premium
+                  </Link>
+                </li>
                 <div className="h-px bg-slate-100 my-1 mx-2" />
                 <li>
                   <button
